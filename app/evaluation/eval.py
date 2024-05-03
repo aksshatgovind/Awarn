@@ -6,16 +6,6 @@ class MLEvaluator:
         self.model = model
 
     def evaluate(self, X_test, y_test):
-        """
-        Evaluate the model using various metrics.
-        
-        Parameters:
-        - X_test: Features of the test set
-        - y_test: Ground truth labels of the test set
-        
-        Returns:
-        - metrics: Dictionary containing evaluation metrics
-        """
         y_pred = self.model.predict(X_test)
         
         accuracy = accuracy_score(y_test, y_pred)
@@ -33,14 +23,7 @@ class MLEvaluator:
         return metrics
 
     def predict(self, X):
-        """
-        Make predictions using the trained model.
-        
-        Parameters:
-        - X: Features of the data to make predictions on
-        
-        Returns:
-        - predictions: Predicted labels
-        """
         predictions = self.model.predict(X)
         return predictions
+
+

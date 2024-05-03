@@ -1,69 +1,61 @@
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+import joblib
 from sklearn.preprocessing import StandardScaler
+import requests
 
 class MLUtils:
-    def __init__(self, model):
-        self.model = model
+    def __init__(self):
+        # self.model = model
+        pass
 
-    def preprocess_data(self, data):
-        """
-        Preprocess the input data before feeding it to the model.
-        
-        Parameters:
-        - data: Input data as a pandas DataFrame
-        
-        Returns:
-        - X: Features matrix after preprocessing
-        """
-        # Perform data preprocessing (e.g., feature scaling, handling missing values)
-        # Example: scaling numeric features using StandardScaler
+    def preprocess_data(self, filename):
+        data=pd.read_excel('/Users/coding/Documents/vs/Awarn/app/dataset/Flood/'+filename+'.xlsx')
+
+        y=data['Flood']
+        for i in range(len(y)):
+            if(y[i] >= 0.1):
+                y[i]=1
+        y=pd.DataFrame(y)
+
         numeric_features = data.select_dtypes(include=[np.number]).columns
         scaler = StandardScaler()
         data[numeric_features] = scaler.fit_transform(data[numeric_features])
         
-        # Extract features and target variable from the preprocessed data
-        X = data.drop(columns=['target_column'])  # Replace 'target_column' with the actual target column name
-        return X
-
-    def train_model(self, X_train, y_train):
-        """
-        Train the machine learning model using the training data.
-        
-        Parameters:
-        - X_train: Features matrix of the training data
-        - y_train: Target variable of the training data
-        
-        Returns:
-        - trained_model: Trained machine learning model
-        """
-        self.model.fit(X_train, y_train)
-        trained_model = self.model
-        return trained_model
+        X = data.drop(columns=['Flood'])
+        return X 
 
     def save_model(self, filename):
-        """
-        Save the trained model to a file.
-        
-        Parameters:
-        - filename: Name of the file to save the model to
-        """
-        # Serialize and save the trained model using joblib or pickle
-        # Example: joblib.dump(self.model, filename)
-        pass  # Placeholder for implementation
+        joblib.dump(self.model, filename)
+
+
+    def geocode_region(region_name):
+        url = f"https://nominatim.openstreetmap.org/search?format=json&q={region_name}"
+
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = response.json()
+            if data:
+                lat = data[0]['lat']
+                lon = data[0]['lon']
+                return float(lat), float(lon)
+            else:
+                # print(f"No results found for '{region_name}'")
+                return None
+        else:
+            print(f"Error: {response.status_code} - {response.reason}")
+            return None
 
     @staticmethod
     def load_model(filename):
-        """
-        Load a trained model from a file.
-        
-        Parameters:
-        - filename: Name of the file containing the saved model
-        
-        Returns:
-        - loaded_model: Loaded machine learning model
-        """
-        # Load the saved model using joblib or pickle
-        # Example: loaded_model = joblib.load(filename)
-        pass  # Placeholder for implementation
+        loaded_model = joblib.load(filename)
+        return loaded_model
+
+Cau_river = pd.read_excel('/Users/coding/Documents/vs/Awarn/app/dataset/Flood/Cauvery.xlsx')
+PrePro = MLUtils()
+# print(PrePro.preprocess_data(Cau_river))
+
+latitude, longitude = MLUtils.geocode_region([0])
+# if latitude is not None and longitude is not None:
+    # print(f"Coordinates for {[0]}: Latitude={latitude}, Longitude={longitude}")
