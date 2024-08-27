@@ -12,21 +12,3 @@ node_modules/
 *.dll
 *.so
 
-
-../.Rapp.history
-../AWS/
-../Aesthene/
-../Assignment-Test/
-../CP_24/
-../EDUSTATION/
-../FW_System/
-../FluentFriend/
-../LLM/
-../ML-Projects/
-../PP_Project/
-../RUST/
-../Satellite-Feature-Extraction/
-../hashtag.zip
-../hashtag/
-../machine_learning/
-../misc/
