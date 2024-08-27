@@ -1,0 +1,90 @@
+Column Name Format: '<Basins>_<Parameter>_<Unit>'
+
+Note: If there are multiple Areas of one basin, like Wind Lake(Area 1) or Wind Lake(Area 2), <Basins> would be: A1 and A2 respectively
+
+Wisconson
+
+    Basins
+
+        Wind Lake - A
+        Waterford - B 
+        Shawano - C
+        Westfield - D
+        Green Lake - E
+        Stoughton - F
+        Green Leaf - G 
+
+    Parameter
+
+        Temprature  -                     Temp
+        Maximum Temprature -              MaxT
+        Minimum Temprature -              MinT
+        Mean Temprature -                 MeanT
+        Gage Height -                     GH
+        Gage Height Tailwater -           GHTW
+        Daily Sum Precipitation -         D-SP
+        Daily Mean Gage Height -          D-MGH
+        Maximum Relative Humidity -       MaxRH
+        Minimum Relative Humidity -       MinRH
+        Mean Relative Humidity -          MeanRH
+        Maximum Specific conductance  -   MaxSC
+        Minimum Specific conductance  -   MinSC
+        Mean Specific conductance -       MeanSC
+        Daily Mean Discharge -            D-MD
+        Daily Instantaneous Gage height-  D-IGH
+
+    Unit
+
+        feet -      ft 
+        Celcius -   degC
+        Farenheit - degF
+        percent -   %
+        cubic feet per second - ft^3/s
+
+
+New York
+
+    Basins
+
+        Albany - A
+        Skaneatele - B 
+        Port Henry - C
+        Rouses Point - D
+        Dunham Basin - E
+        Cranberry Lake - F
+
+    Parameter
+    
+        Temprature  -                     Temp
+        Maximum Temprature -              MaxT
+        Minimum Temprature -              MinT
+        Mean Temprature -                 MeanT
+        Gage Height -                     GH
+        Gage Height Tailwater -           GHTW
+        Daily Sum Precipitation -         D-SP
+        Daily Mean Gage Height -          D-MGH
+        Maximum Relative Humidity -       MaxRH
+        Minimum Relative Humidity -       MinRH
+        Mean Relative Humidity -          MeanRH
+        Maximum Specific conductance  -   MaxSC
+        Minimum Specific conductance  -   MinSC
+        Mean Specific conductance -       MeanSC
+        Daily Mean Discharge -            D-MD
+        Daily Instantaneous Gage height-  D-IGH
+
+    Unit
+
+        feet -      ft 
+        Celcius -   degC
+        Farenheit - degF
+        percent -   %
+        cubic feet per second - ft^3/s
+
+
+
+
+
+Endings
+A         Approved for publication -- Processing and review completed.
+P         Provisional data subject to revision.
+4         Statistic computed from less than expected number of instantaneous values for the period
