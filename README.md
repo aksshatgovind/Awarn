@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Forewarning System: Natural Calamities
 
 # Purpose
@@ -25,3 +26,6 @@ This research will not delve into the social, economic, and political aspects of
 Optimization of specific ML algorithms and deep learning architectures may fall outside the scope based on resource constraints and project timelines.
 
 
+=======
+# Guide_Wise
+>>>>>>> feature-usgs
