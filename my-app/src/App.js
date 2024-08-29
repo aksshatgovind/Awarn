@@ -4,6 +4,7 @@ import Home from './screens/home'
 import About from './screens/about'
 import Guide from './screens/guide'
 import Flood from './screens/flood'
+import Region2 from './screens/region2'
 import{
   BrowserRouter as Router,
   Routes,
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/guide" element={<Guide/>} />
           <Route exact path="/Flood" element={<Flood/>} />
+          <Route exact path="/Region2" element={<Region2/>} />
         </Routes>
       </Router>
     </div>
