@@ -20,4 +20,4 @@ Always install 'requirements.txt' using command:
 
 In 'src/backend/', run the command to check if server is active:
 
-- python3 manage.py runserver
+- python3 model.py

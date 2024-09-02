@@ -1,1 +1,0 @@
-# High-level overview of the project's architecture and components.

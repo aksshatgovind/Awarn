@@ -24,8 +24,8 @@ def predict():
 
         ## Scrape data for the day
         example_data = pd.DataFrame({
-            'H_MinT_degC': [11.7],  
-            'C3_MaxT_degC': [18.7],
+            'H_MinT_degC': [8.5],  
+            'C3_MaxT_degC': [10],
             'H_MeanT_degC': [10.8]
         })
         H_MinT = example_data['H_MinT_degC']

@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from src.backend.app.models import FloodRiskRegion  #Django model to represent flood risk regions
+from backend.app.models1 import FloodRiskRegion  #Django model to represent flood risk regions
 from app.models.ml import LDA
 from src.ml_models.final import flood_risk_lda
 
