@@ -26,14 +26,14 @@ export default function About() {
     <Navbar/>
     </div>
    
- <div className='border-y-2' data-aos="fade-right"
+ <div className='border-y-0' data-aos="fade-right"
    
    data-aos-easing="ease-in-sine"
-     data-aos-duration="1500"> 
+     data-aos-duration="1500" style={{marginTop:'100px'}}> 
 
-    <Card>
+    <Card style={{marginLeft: '100px', marginRight: '100px', marginTop: '20px',marginBottom: '20px'}}>
       <CardBody>
-        <Typography variant="h5" color="blue-gray" className="mb-2">
+        <Typography variant="h5" color="blue-gray" className="mb-4" style={{justifyContent:'center'}}>
          About Us
         </Typography>
         <Typography>
@@ -41,17 +41,17 @@ export default function About() {
 Traditional early warning systems have relied on predefined thresholds and simplistic algorithms, often lacking the adaptability and accuracy necessary to address the complexities of modern disaster dynamics. However, recent advancements in ML techniques offer a paradigm shift in disaster forecasting and risk assessment. By harnessing the vast troves of historical datasets encompassing past disaster occurrences, ML models can discern intricate patterns, identify subtle indicators, and deliver more precise predictions of future events.
         </Typography>
       </CardBody>
-      <CardFooter className="border-gray-2">
+      <CardFooter className="border-gray-0">
         
       </CardFooter>
     </Card>
     </div>
 
-    <div className='border-y-2'data-aos="fade-left"
+    <div className='border-y-0'data-aos="fade-left"
    
    data-aos-easing="ease-in-sine"
      data-aos-duration="1500">
-    <Card>
+    <Card style={{marginLeft: '100px', marginRight: '100px', marginTop: '20px',marginBottom: '20px'}}>
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
         Vision
@@ -73,11 +73,11 @@ Traditional early warning systems have relied on predefined thresholds and simpl
       </CardFooter>
     </Card>
 </div>
-<div className='border-y-2'data-aos="fade-right"
+<div className='border-y-0'data-aos="fade-right"
    
    data-aos-easing="ease-in-sine"
      data-aos-duration="1500">
-    <Card>
+    <Card style={{marginLeft: '100px', marginRight: '100px', marginTop: '20px',marginBottom: '20px'}}>
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
         Mission
@@ -95,18 +95,18 @@ Traditional early warning systems have relied on predefined thresholds and simpl
         </Typography>
       
       </CardBody>
-      <CardFooter className="border-gray-2">
+      <CardFooter className="border-gray-0">
        
       </CardFooter>
-    </Card>
+    </Card >
   
     </div>
 
-    <div className='border-y-2'data-aos="fade-left"
+    <div className='border-y-0'data-aos="fade-left"
    
    data-aos-easing="ease-in-sine"
      data-aos-duration="1500">
-    <Card>
+    <Card style={{marginLeft: '100px', marginRight: '100px', marginTop: '20px',marginBottom: '20px'}}>
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
         Disclaimer:
@@ -119,7 +119,7 @@ Unique meteorological factors (timing and distribution of precipitation) may cau
         </Typography>
       
       </CardBody>
-      <CardFooter className="border-gray-2">
+      <CardFooter className="border-gray-0">
        
       </CardFooter>
     </Card>

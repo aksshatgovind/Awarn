@@ -238,7 +238,7 @@
     <div className='bg-blue-50	'>
         <Navbar/>
         
-        <div className='flex justify-center items-center'style={{marginLeft:'60px',width:'80%'}} >
+        <div className='flex justify-center items-center mt-10'style={{marginLeft:'60px',width:'80%'}}  >
         <div className="  flex bg-blue-100 shadow-xl shadow-blue-200" data-aos="flip-left"
          data-aos-easing="ease-out-cubic"
          data-aos-duration="2000" style={{marginTop:'430px'}} >

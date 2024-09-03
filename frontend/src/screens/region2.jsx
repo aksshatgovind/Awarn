@@ -38,9 +38,7 @@ const Region2= () => {
     AOS.init();
   }, []);
 
-  const val = 1.7;
-  const maxi = 1.5;
-  const mini = 0.5;
+  
   
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -52,34 +50,19 @@ const Region2= () => {
   const zoom = 11;
   maptilersdk.config.apiKey = 'MvorommUwDmyvjgiemJI';
 
-
   useEffect(() => {
     const fetchFloodSeverity = async () => {
       try {
         const response = await fetch('http://127.0.0.1:5000/Newyork');
-       
         const data = await response.json();
-        setFloodSeverity(data.Flood_Severity);
-        
-        localStorage.setItem('floodSeverity_region2', data.Flood_Severity);
+        setFloodSeverity(data.Flood_Severity); // Update state with the flood severity
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
-    fetchFloodSeverity(); // Initial fetch
-
-    const intervalId = setInterval(fetchFloodSeverity, 60000); // Poll every 60 seconds
-
-    return () => clearInterval(intervalId); // Clean up interval on component unmount
-  }, []);
-  useEffect(() => {
-    const savedFloodSeverity = localStorage.getItem('floodSeverity_region2');
-    if (savedFloodSeverity) {
-      setFloodSeverity(savedFloodSeverity);
-    }
-  }, []);
-
+  
+    fetchFloodSeverity();
+  }, []); 
 
   useEffect(() => {
     if (map.current) return; // stops map from initializing more than once
@@ -205,6 +188,20 @@ const Region2= () => {
   
 
 
+  const LOCAL_STORAGE_KEY = 'floodSeverity_region2';
+  useEffect(() => {
+    // Retrieve flood severity from localStorage if it exists
+    const savedFloodSeverity = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedFloodSeverity) {
+      setFloodSeverity(savedFloodSeverity);
+    }
+  }, [setFloodSeverity]);
+
+  useEffect(() => {
+    if (floodSeverity !== null) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, floodSeverity);
+    }
+  }, [floodSeverity]);
 
   
   const handleChange = (event) => {
@@ -218,7 +215,7 @@ const Region2= () => {
     <Navbar/>
     
      
-    <div className='flex justify-center items-center'style={{marginLeft:'60px',width:'80%'}} >
+    <div className='flex justify-center items-center mt-10'style={{marginLeft:'60px',width:'80%'}} >
         <div className="  flex bg-blue-100 shadow-xl shadow-blue-200" data-aos="flip-left"
          data-aos-easing="ease-out-cubic"
          data-aos-duration="2000" style={{marginTop:'430px'}} >
@@ -247,7 +244,7 @@ const Region2= () => {
     </div>
 
 <div className="map-wrap">
-      <div ref={mapContainer} className="map" style={{ height: '100vh', width: '45%' }} />
+      <div ref={mapContainer} className="map" style={{ height: '80vh', width: '45%' }} />
     
       <select
       onChange={handleChange}
