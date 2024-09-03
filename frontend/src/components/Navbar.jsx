@@ -6,7 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../images/Logo-f.png'
 
 const navigation = [
-  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Home', href: '/', current: true },
   { name: 'About Us', href: '/about', current: false },
   { name: 'Guide', href: '/guide', current: false },
  
@@ -24,7 +24,7 @@ function Navbar(){
   return (
 <>
     
-  <Disclosure as="nav" className="bg-blue-400">
+<Disclosure as="nav" className="bg-blue-400" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 50 }}>
     {({ open }) => (
       <>
         <div className=" max-w-7xl px-2 sm:px-6 lg:px-8 ">
@@ -57,8 +57,8 @@ function Navbar(){
               </div>
             <div className="flex  justify-end sm:items-stretch sm:justify-end">
               
-              <div className="hidden sm:ml-6 sm:block">
-                <div className="flex space-x-4">
+              <div className="hidden sm:ml-12 sm:block" style={{ position: 'fixed', top: '1rem', right: '42rem', display: 'flex', alignItems: 'center' }}>
+                <div className="flex space-x-6">
                   {navigation.map((item) => (
                     <a
                       key={item.name}
@@ -75,7 +75,8 @@ function Navbar(){
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+            <div style={{ position: 'fixed', top: '1rem', right: '4rem', display: 'flex', alignItems: 'center' }}>
               
 
               {/* Profile dropdown */}

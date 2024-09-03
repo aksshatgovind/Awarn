@@ -22,10 +22,10 @@ export default function Guide() {
     <>
     <div className="bg-blue-50" >
     <Navbar/>
-<div data-aos="zoom-in" data-aos-duration="1500">
-    <Card className="mt-6 mb-10 w-96 mx-auto">
+<div data-aos="zoom-in" data-aos-duration="1500" >
+    <Card className="mt-6 mb-10 w-96 mx-auto" style={{marginTop:'100px'}}>
       <CardBody>
-        <Typography variant="h5" color="blue-gray" className="mb-2">
+        <Typography variant="h5" color="blue-gray" className="mb-2" >
           Guide
         </Typography>
         <Typography>
