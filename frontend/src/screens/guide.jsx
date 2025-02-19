@@ -20,7 +20,7 @@ export default function Guide() {
   return (
     
     <>
-    <div className="bg-blue-50" >
+    <div className="bg-black-50" >
     <Navbar/>
 <div data-aos="zoom-in" data-aos-duration="1500" >
     <Card className="mt-6 mb-10 w-96 mx-auto" style={{marginTop:'100px'}}>

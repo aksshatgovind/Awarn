@@ -38,9 +38,9 @@ def ny():
 
         ## Scrape data for the day
         example_data = pd.DataFrame({
-            'H_MinT_degC': [25.3],  
-            'C3_MaxT_degC': [21.7],
-            'H_MeanT_degC': [23.3]
+            'H_MinT_degC': [17.9],  
+            'C3_MaxT_degC': [24.3],
+            'H_MeanT_degC': [21.2]
         })
         H_MinT = example_data['H_MinT_degC']
         C3_MaxT = example_data['C3_MaxT_degC']
@@ -54,7 +54,17 @@ def ny():
 
         print('Prediction:',prediction[0])
         print('Stop')
-        return jsonify({'Flood_Severity': prediction[0]})
+
+        # return jsonify({'Flood_Severity': prediction[0]})
+        region_details = {
+            'name': 'New York',
+            'latitude': 44.583712,
+            'longitude': -89.663033,
+            'description': 'Flood risk assessment for New York region',
+            'Flood_Severity': prediction[0]
+        }
+
+        return jsonify(region_details)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -113,7 +123,16 @@ def predict():
 
         print('Prediction:',prediction[0])
         print('Stop')
-        return jsonify({'Flood_Severity': prediction[0]})
+        # return jsonify({'Flood_Severity': prediction[0]})
+        region_details = {
+            'name': 'Wisconsin',
+            'latitude': 44.522910,
+            'longitude': -89.589784,
+            'description': 'Flood risk assessment for Wisconsin region',
+            'Flood_Severity': prediction[0]
+        }
+
+        return jsonify(region_details)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
