@@ -110,7 +110,7 @@ function Home() {
          </div>
       </div>
 
-      <div className="" data-aos="fade-down" data-aos-duration="3000">
+      <div className="bg-black-500" data-aos="fade-down" data-aos-duration="3000">
         <Footer />
       </div>
       </div>
