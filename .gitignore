@@ -12,5 +12,6 @@ node_modules/
 *.dll
 *.so
 
+.env
 frontend/client_secret_193656185216-sd17ocb0uoup3kbpa8219kqcktancdt2.apps.googleusercontent.com.json
 frontend/server.js
