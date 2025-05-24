@@ -50,6 +50,7 @@
         }
     };
 
+    // OpenWeatherMap API
     const fetchWeather = async (lat, lon) => {
       try {
           const apiKey = "6e1c655b2df93d2357975a836bb31805"; 
@@ -66,6 +67,8 @@
           return null;
       }
       };
+
+      // OpenStreetMap API
       const fetchStateCountry = async (region) => {
         try {
             const response = await fetch(

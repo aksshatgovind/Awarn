@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link,useNavigate} from 'react-router-dom';
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../images/Logo-f.png'
+import MailLogo from '../images/alert.png'
+import { X } from "lucide-react";
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -12,15 +14,68 @@ const navigation = [
  
 ]
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
-
-
 function Navbar(){
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleOpenPopup = () => setIsPopupOpen(true);
+  const handleClosePopup = () => setIsPopupOpen(false);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   alert(`Subscribed with email: ${email}`);
+  //   setEmail("");
+  //   handleClosePopup();
+  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const currentPath = window.location.pathname;
+      let location;
+
+      if (currentPath.includes('/Flood')) {
+        location = 'Flood';
+      } else if (currentPath.includes('/region2')) {
+        location = 'Region2';
+      } else {
+        location = 'General';
+      }
+  
+      console.log('Submitting email:', email);
+      console.log('Current location:', location);
+  
+      const response = await fetch('http://localhost:4000/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, location }),
+      });
+  
+      console.log('Response status:', response.status);
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error response data:', errorData);
+        alert(`Error: ${errorData.message}`);
+        return;
+      }
+  
+      const data = await response.json();
+      console.log('Success response data:', data);
+  
+      alert(data.message || 'Email sent successfully!');
+      setEmail(""); // Clear email field
+      handleClosePopup(); // Close popup
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Error: ' + error.message);
+    }
+  };  
+    
+
   return (
 <>
     
@@ -73,6 +128,18 @@ function Navbar(){
                     </a>
                   ))}
                 </div>
+                
+              </div>
+              <div
+                onClick={handleOpenPopup}
+                className="cursor-pointer"
+                style={{ position: 'fixed', top: '1rem', right: '7rem'}}
+              >
+                <img
+                  src={MailLogo}
+                  alt="Subscribe for Flood Alerts"
+                  className="h-10 w-10 rounded-lg hover:scale-105 transition-transform"
+                />
               </div>
             </div>
 
@@ -85,7 +152,7 @@ function Navbar(){
                   <Menu.Button className="relative flex rounded-full bg-white-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                    <BellIcon className="h-9 w-9 text-black" aria-hidden="true" />
                   </Menu.Button>
                 </div>
                 <Transition
@@ -155,6 +222,42 @@ function Navbar(){
       </>
     )}
   </Disclosure>
+
+  {/* Email Popup */}
+  {isPopupOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div className="relative bg-white p-6 rounded-2xl shadow-xl w-11/12 max-w-md">
+            {/* Close Button */}
+            <button
+              onClick={handleClosePopup}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+            >
+              <X size={24} />
+            </button>
+
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
+              Stay Updated with Flood Alerts
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
   </>
 )

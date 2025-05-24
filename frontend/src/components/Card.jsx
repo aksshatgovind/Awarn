@@ -31,7 +31,9 @@ export default function Cards(props) {
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">
-        <Button>Read More</Button>
+        <a href={props.link} target="_blank" rel="noopener noreferrer">
+          <Button>Read More</Button>
+        </a>
       </CardFooter>
     </Card>
   

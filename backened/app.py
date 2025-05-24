@@ -26,21 +26,25 @@ def calculate_features(A_GH_ft, A_GHTW_ft, B1_D_SP_inches, df):
 def ny():
     try:
         print('Start')
-        df = pd.read_csv('app/dataset/NewYork_365.csv')  # Update with your actual data path
+        df = pd.read_csv('app/dataset/NewYork_365.csv') 
         df = df.dropna()  
-    
-        ## Manual Entry from here
 
         # 'Gage,height,feet,(Mean)WIND_LAKE(WI)': 'A_GH_ft',
         # 'Gage,height,feet,TAILWATER(Mean)WIND_LAKE(WI)': 'A_GHTW_ft',
         # 'Daily Sum Precipitation, total, inches(AREA-1)WATERFORD(WI)': 'B1_D-SP_inches',
 
+        # 2 Nov 2024
+        # example_data = pd.DataFrame({
+        #     'H_MinT_degC': [17.9],  
+        #     'C3_MaxT_degC': [24.3],
+        #     'H_MeanT_degC': [21.2]
+        # })
 
-        ## Scrape data for the day
+        # 19 Feb 2025
         example_data = pd.DataFrame({
-            'H_MinT_degC': [17.9],  
-            'C3_MaxT_degC': [24.3],
-            'H_MeanT_degC': [21.2]
+            'H_MinT_degC': [0.5],  
+            'C3_MaxT_degC': [0.5],
+            'H_MeanT_degC': [0.5]
         })
         H_MinT = example_data['H_MinT_degC']
         C3_MaxT = example_data['C3_MaxT_degC']
@@ -73,7 +77,6 @@ def ny():
 def predict():
     try:
         print('Start')
-        # Fetch real-time data from another source
         # response = requests.get('URL_OF_THE_DATA_SOURCE') # USGS API which we dont have
         # data = response.json()
 
@@ -92,20 +95,23 @@ def predict():
 
         # # Prepare input DataFrame for prediction
         # input_features = pd.DataFrame([[rolling_mean, lag1, interaction]], columns=['A_GH_ft_Rolling_Mean_3', 'A_GH_ft_Lag1', 'A_GHTW_ft_B1_D_SP_inches_Interaction'])
-        
-
-
-        ## Manual Entry from here
 
         # 'Gage,height,feet,(Mean)WIND_LAKE(WI)': 'A_GH_ft',
         # 'Gage,height,feet,TAILWATER(Mean)WIND_LAKE(WI)': 'A_GHTW_ft',
         # 'Daily Sum Precipitation, total, inches(AREA-1)WATERFORD(WI)': 'B1_D-SP_inches',
 
 
-        ## Scrape data for the day
+        # 2 Nov 2024
+        # example_data = pd.DataFrame({
+        #     'A_GH_ft': [2.51],  
+        #     'A_GHTW_ft': [45.8],
+        #     'B1_D_SP_inches': [0.01]
+        # })
+
+        # 19 Feb 2025
         example_data = pd.DataFrame({
-            'A_GH_ft': [2.51],  
-            'A_GHTW_ft': [45.8],
+            'A_GH_ft': [2.76],  
+            'A_GHTW_ft': [2.80],
             'B1_D_SP_inches': [0.01]
         })
         A_GH_ft = example_data['A_GH_ft']
@@ -136,8 +142,6 @@ def predict():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    
-
 
     
 
