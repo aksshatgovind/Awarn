@@ -15,6 +15,12 @@ Scope definition:
 * ML algorithms
 * Forewarning system development
 
+# AWARN : Overview
+
+![Home page](./docs/images/home.png)
+![Forewarner](./docs/images/forewarn.png)
+![Email Subscribed alerts](./docs/images/alert.png)
+
 # Documentation
 
 To view more about this project, visit the directory '/docs'.
