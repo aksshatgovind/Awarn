@@ -21,6 +21,10 @@ Scope definition:
 ![Forewarner](./docs/images/forewarn.png)
 ![Email Subscribed alerts](./docs/images/alert.png)
 
+### DEMO
+
+[![Introducing AWARN](./docs/images/home.png)](https://shorturl.at/Paro3)
+
 # Documentation
 
 To view more about this project, visit the directory '/docs'.
